@@ -17,6 +17,7 @@
   --bg-color-default: #ddd;
   --bg-color-btn: #00a152;
   --bg-color-input: #eeeeee;
+  --bg-color-total: #bf360c;
 
   /* font Size */
   --font-size-xxl: 2.5rem;
@@ -44,7 +45,9 @@
   --transition-main: 0.3s;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -55,19 +58,22 @@ html {
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: var(--bg-color-default);
   font-family: "Inter", sans-serif;
 }
 
 .container {
+  --border-radius-box: var(--border-radius-xs);
+  --padding-box: var(--space-xs) var(--space-xs);
+  --width-box: 550px;
   width: 100%;
   font-size: var(--font-size-sm);
   display: flex;
   padding: var(--space-xxl);
   flex-direction: column;
   align-items: center;
-  
+  gap: var(--space-md);
 }
 
 h2 {
@@ -83,6 +89,7 @@ button {
   border-radius: var(--border-radius-xs);
   transition: var(--transition-main);
   cursor: pointer;
+  width: 100%;
 }
 
 input {
@@ -94,11 +101,58 @@ input {
   transition: var(--transition-main);
 }
 
-
+/*header */
 .header {
-    width: 550px;
-    text-align: center;
-    span {
-        color: var(--text-color-descraption);
+  width: var(--width-box);
+  text-align: center;
+  text-transform: uppercase;
+  span {
+    color: var(--text-color-descraption);
+  }
+}
+
+/* inputs */
+
+.inputs {
+  width: var(--width-box);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+
+  /* Price */
+  .price_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xs);
+    flex-wrap: wrap;
+    input,
+    #text {
+      flex: 1;
+      width: calc(100% / 6);
     }
+
+    #total {
+      display: inline-flex;
+      justify-content: center;
+
+      background-color: var(--bg-color-total);
+      color: var(--text-color-grey);
+      padding: 8px 10px;
+      border-radius: var(--border-radius-box);
+      overflow: hidden;
+    }
+
+    #total::before {
+      content: "total:";
+      padding-right: 3px;
+    }
+  }
+
+
+  .search-btn {
+    display: flex;
+    gap: var(--space-xs);
+  }
 }
