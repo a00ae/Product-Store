@@ -1,27 +1,104 @@
 :root {
-    --space-xxl: 100px;
+  --space-xxl: 100px;
+  --space-xl: 80px;
+  --space-lg: 60px;
+  --space-md: 40px;
+  --space-sm: 20px;
+  --space-xs: 10px;
+  --space-xxs: 5px;
 
+  /* color */
 
+  --text-color-default: #121212;
+  --text-color-grey: #f5f5f5;
+  --text-color-descraption: #616161;
 
-    /* color */
+  /* background */
+  --bg-color-default: #ddd;
+  --bg-color-btn: #00a152;
+  --bg-color-input: #eeeeee;
 
-    /* background */
+  /* font Size */
+  --font-size-xxl: 2.5rem;
+  --font-size-xl: 2.5rem;
+  --font-size-lg: 1.75rem;
+  --font-size-md: 1.5rem;
+  --font-size-sm: 1rem;
+  --font-size-xs: 0.875rem;
+  --font-size-xxs: 0.75rem;
 
-    /* font */
+  /*  font weight    */
 
+  --font-weight-bold: 700;
+  --font-weight-default: 500;
+  --font-weight-sm: 400;
 
+  /* border */
+  --border-radius-lg: 20px;
+  --border-radius-md: 15px;
+  --border-radius-sm: 10px;
+  --border-radius-xs: 5px;
+
+  /* transition */
+
+  --transition-main: 0.3s;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
-.body {
-    overflow: hidden;
+body {
+  overflow: hidden;
+  background-color: var(--bg-color-default);
+  font-family: "Inter", sans-serif;
 }
 
 .container {
-    width: 100%;
-    background-color: #000;
+  width: 100%;
+  font-size: var(--font-size-sm);
+  display: flex;
+  padding: var(--space-xxl);
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-sm);
+}
+
+button {
+  border: none;
+  background-color: var(--bg-color-btn);
+  color: var(--text-color-grey);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-xs);
+  transition: var(--transition-main);
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+  border: none;
+  background-color: var(--bg-color-input);
+  padding: var(--space-xs) var(--space-xs);
+  border-radius: var(--border-radius-xs);
+  transition: var(--transition-main);
+}
+
+
+.header {
+    width: 550px;
+    text-align: center;
+    span {
+        color: var(--text-color-descraption);
+    }
 }
