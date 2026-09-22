@@ -67,7 +67,6 @@ body {
 .container {
   --border-radius-box: var(--border-radius-xs);
   --padding-box: var(--space-xs) var(--space-xs);
-  --width-box: 620px;
   width: 80%;
   margin: auto;
   font-size: var(--font-size-sm);
@@ -110,8 +109,6 @@ input {
     background-color: var(--bg-color-fuces);
   }
 }
-
-
 
 
 /*header */
@@ -190,7 +187,6 @@ input {
   }
   
 }
-
 
 @media (max-width: 1400px) {
   .container {
