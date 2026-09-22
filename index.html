@@ -16,36 +16,67 @@
   </head>
   <body>
     <div class="container" id="container">
-        <!-- header -->
+      <!-- header -->
       <header class="header">
         <h2>CRUDS</h2>
         <span>Product Management System</span>
-
       </header>
 
       <!-- Inputs -->
       <section class="inputs">
-        <input placeholder="title" type="text" id="title">
+        <input placeholder="title" type="text" id="title" />
         <div class="price_container">
-            <input placeholder="price" type="number" id="price">
-            <input placeholder="taxes" type="number" id="taxes">
-            <input placeholder="ads" type="number" id="ads">
-            <input placeholder="discount" type="number" id="discount">
-            <span id="total"></span>
+          <input onkeyup="getTotal()" placeholder="price" type="number" id="price" />
+          <input onkeyup="getTotal()" placeholder="taxes" type="number" id="taxes" />
+          <input onkeyup="getTotal()" placeholder="ads" type="number" id="ads" />
+          <input onkeyup="getTotal()" placeholder="discount" type="number" id="discount" />
+          <span id="total"></span>
         </div>
-        <input placeholder="count" type="text" id="count">
-        <input placeholder="catagory" type="text" id="catagory">
-        <button id="create">create</button>
-        <input placeholder="search" type="text" id="search">
+        <input placeholder="count" type="text" id="count" />
+        <input placeholder="catagory" type="text" id="catagory" />
+        <button  id="submit">create</button>
+        <input placeholder="search" type="text" id="search" />
         <div class="search-btn">
-            <button>search by title</button>
-            <button>search by catagory</button>
+          <button id="search-by-title">search by title</button>
+          <button id="search-by-catagory">search by catagory</button>
         </div>
         <!-- <button id="delete-all">Delete All</button> -->
       </section>
 
       <!-- Taple -->
-       <section class="table"></section>
+      <section class="table">
+        <table>
+          <!-- Head -->
+          <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>price</th>
+            <th>taxes</th>
+            <th>ads</th>
+            <th>discount</th>
+            <th>total</th>
+            <th>catagory</th>
+            <th>update</th>
+            <th>delete</th>
+          </tr>
+          <!-- Body -->
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>oppo</td>
+              <td>2000</td>
+              <td>120</td>
+              <td>200</td>
+              <td>50</td>
+              <td>3000</td>
+              <td>phone</td>
+              <td><button id="update">update</button></td>
+              <td><button id="delete">delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </div>
 
     <script src="main.js"></script>
