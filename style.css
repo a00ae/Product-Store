@@ -18,6 +18,7 @@
   --bg-color-btn: #00a152;
   --bg-color-input: #eeeeee;
   --bg-color-total: #bf360c;
+  --bg-color-fuces: #ffffff;
 
   /* font Size */
   --font-size-xxl: 2.5rem;
@@ -30,7 +31,7 @@
 
   /*  font weight    */
 
-  --font-weight-bold: 700;
+  --font-weight-bold: 600;
   --font-weight-default: 500;
   --font-weight-sm: 400;
 
@@ -66,8 +67,9 @@ body {
 .container {
   --border-radius-box: var(--border-radius-xs);
   --padding-box: var(--space-xs) var(--space-xs);
-  --width-box: 550px;
-  width: 100%;
+  --width-box: 620px;
+  width: 80%;
+  margin: auto;
   font-size: var(--font-size-sm);
   display: flex;
   padding: var(--space-xxl);
@@ -79,6 +81,7 @@ body {
 h2 {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-sm);
+  
 }
 
 button {
@@ -90,6 +93,9 @@ button {
   transition: var(--transition-main);
   cursor: pointer;
   width: 100%;
+  text-transform: capitalize;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
 }
 
 input {
@@ -99,11 +105,19 @@ input {
   padding: var(--space-xs) var(--space-xs);
   border-radius: var(--border-radius-xs);
   transition: var(--transition-main);
+
+  &:focus {
+    background-color: var(--bg-color-fuces);
+  }
 }
+
+
+
 
 /*header */
 .header {
-  width: var(--width-box);
+  user-select: none;
+  width: inherit;
   text-align: center;
   text-transform: uppercase;
   span {
@@ -114,7 +128,7 @@ input {
 /* inputs */
 
 .inputs {
-  width: var(--width-box);
+  width: inherit;
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
@@ -145,14 +159,47 @@ input {
     }
 
     #total::before {
-      content: "total:";
-      padding-right: 3px;
+      content: "Total: ";
     }
   }
-
 
   .search-btn {
     display: flex;
     gap: var(--space-xs);
+  }
+}
+
+
+
+/* outbut table */
+
+.table {
+  width: inherit;
+  table {
+    width: 100%;
+    text-align: center;
+    th {
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      user-select: none;
+     
+    }
+    th, td {
+      padding: var(--space-xxs);
+    }
+  }
+  
+}
+
+
+@media (max-width: 1400px) {
+  .container {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: var(--space-sm);
   }
 }
