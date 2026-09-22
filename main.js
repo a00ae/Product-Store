@@ -91,6 +91,14 @@ const readData = () => {
     tmp = i;
   }
   document.getElementById("tbody").innerHTML = table;
+  let deleteAll = document.getElementById("delete-all");
+  if(dataTuch.length > 0) {
+    deleteAll.innerHTML = `<button onclick="deleteAll()">delete all (${dataTuch.length})</button>`
+
+  }
+  else {
+    deleteAll.innerHTML = '';
+  }
 };
 
 readData();
@@ -102,6 +110,12 @@ const deleteData = (id) => {
 
   readData();
 };
+
+const deleteAll = () => {
+    localStorage.clear();
+    dataTuch.splice(0);
+    readData();
+}
 
 // count
 // update
