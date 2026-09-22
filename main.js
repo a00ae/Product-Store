@@ -26,15 +26,36 @@ const getTotal = () => {
 
 
 
+let dataTuch;
+if(localStorage.product != null) {
+    dataTuch = JSON.parse(localStorage.product);
+}
+else {
+    dataTuch = [];
+}
 
 
+submit.onclick = () => {
+
+    let newTach = {
+        title: title.value,
+        price: price.value,
+        taxes: taxes.value,
+        ads: ads.value,
+        discount: discount.value,
+        total: total.innerHTML,
+        catagory: catagory.value
+
+    }
+    
+    dataTuch.push(newTach);
+    // حفظ البيانات داخل ذاكرة المتصفح = localStorage
+    localStorage.setItem("product", JSON.stringify(dataTuch));
+    
+ 
+}
 
 
-
-
-
-
-// create product
 // seva in localstorage
 // clear inputs
 // read 
