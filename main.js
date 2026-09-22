@@ -10,6 +10,8 @@ let submit = document.getElementById("submit");
 
 // get total
 
+let tmp;
+
 const getTotal = () => {
   if (price.value != "") {
     let result = +price.value + +taxes.value + +ads.value - +discount.value;
@@ -37,6 +39,7 @@ submit.onclick = () => {
     taxes: taxes.value,
     ads: ads.value,
     discount: discount.value,
+    count: count.value,
     total: total.innerHTML,
     catagory: catagory.value,
   };
@@ -46,6 +49,7 @@ submit.onclick = () => {
   localStorage.setItem("product", JSON.stringify(dataTuch));
 
   clearInputs();
+  readData();
 };
 
 // clear inputs
@@ -59,10 +63,42 @@ const clearInputs = () => {
   total.innerHTML = "";
   count.value = "";
   catagory.value = "";
-  total.style.backgroundColor = '';
+  total.style.backgroundColor = "";
 };
 
 // read
+
+const readData = () => {
+  let table = "";
+
+  for (let i = 0; i < dataTuch.length; i++) {
+    table += `
+            <tr>
+              <td>${i + 1}</td>
+              <td>${dataTuch[i].title}</td>
+              <td>${dataTuch[i].price}</td>
+              <td>${dataTuch[i].taxes}</td>
+              <td>${dataTuch[i].ads}</td>
+              <td>${dataTuch[i].discount}</td>
+              <td>${dataTuch[i].count}</td>
+              <td>${dataTuch[i].total}</td>
+              <td>${dataTuch[i].catagory}</td>
+              <td><button id="update">update</button></td>
+              <td><button id="delete">delete</button></td>
+            </tr>
+        
+        
+        `;
+    tmp = i;
+
+    document.getElementById("tbody").innerHTML = table;
+  }
+};
+
+readData();
+
+console.log(tmp);
+
 // count
 // delete
 // update
