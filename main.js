@@ -84,23 +84,26 @@ const readData = () => {
               <td>${dataTuch[i].total}</td>
               <td>${dataTuch[i].catagory}</td>
               <td><button id="update">update</button></td>
-              <td><button id="delete">delete</button></td>
+              <td><button onclick="deleteData(${i})" id="delete">delete</button></td>
             </tr>
-        
         
         `;
     tmp = i;
-
-    document.getElementById("tbody").innerHTML = table;
   }
+  document.getElementById("tbody").innerHTML = table;
 };
 
 readData();
 
-console.log(tmp);
+// delete
+const deleteData = (id) => {
+  dataTuch.splice(id, 1);
+  localStorage.product = JSON.stringify(dataTuch);
+
+  readData();
+};
 
 // count
-// delete
 // update
 // search
 // clean data

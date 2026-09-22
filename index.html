@@ -26,15 +26,31 @@
       <section class="inputs">
         <input placeholder="title" type="text" id="title" />
         <div class="price_container">
-          <input onkeyup="getTotal()" placeholder="price" type="number" id="price" />
-          <input onkeyup="getTotal()" placeholder="taxes" type="number" id="taxes" />
-          <input onkeyup="getTotal()" placeholder="ads" type="number" id="ads" />
-          <input onkeyup="getTotal()" placeholder="discount" type="number" id="discount" />
+          <input
+            onkeyup="getTotal()"
+            placeholder="price"
+            type="number"
+            id="price" />
+          <input
+            onkeyup="getTotal()"
+            placeholder="taxes"
+            type="number"
+            id="taxes" />
+          <input
+            onkeyup="getTotal()"
+            placeholder="ads"
+            type="number"
+            id="ads" />
+          <input
+            onkeyup="getTotal()"
+            placeholder="discount"
+            type="number"
+            id="discount" />
           <span id="total"></span>
         </div>
         <input placeholder="count" type="text" id="count" />
         <input placeholder="catagory" type="text" id="catagory" />
-        <button  id="submit">create</button>
+        <button id="submit">create</button>
         <input placeholder="search" type="text" id="search" />
         <div class="search-btn">
           <button id="search-by-title">search by title</button>
@@ -62,9 +78,7 @@
           </tr>
           <!-- Body -->
 
-          <tbody id="tbody">
-
-          </tbody>
+          <tbody id="tbody"></tbody>
         </table>
       </section>
     </div>
