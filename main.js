@@ -35,32 +35,56 @@ if (localStorage.product != null) {
 
 submit.onclick = () => {
   let newTach = {
-    title: title.value,
-    price: price.value,
-    taxes: taxes.value,
-    ads: ads.value,
-    discount: discount.value,
-    count: count.value,
+    title: title.value.trim(),
+    price: price.value.trim(),
+    taxes: taxes.value ? taxes.value : "0",
+    ads: ads.value ? ads.value : "0",
+    discount: discount.value ? discount.value : "0",
+    count: count.value ? count.value : 1,
     total: total.innerHTML,
-    catagory: catagory.value,
+    catagory: catagory.value.trim(),
   };
 
-  if (mood === "create") {
-    if (newTach.count < 1) {
-      count.style.border = "1px solid #f04";
-      return;
-    }
-    count.style.border = "";
-    dataTuch.push(newTach);
+  // 1. فحص كل حقل بشكل منفصل لتلوينه بالأحمر إذا كان فارغاً
+  let isValid = true;
+
+  if (title.value.trim() === "") {
+    title.style.borderColor = "#f04";
+    isValid = false;
   } else {
-    dataTuch[tmp] = newTach;
-    mood = "create";
-    submit.innerHTML = "create";
+    title.style.borderColor = "";
   }
 
-  localStorage.setItem("product", JSON.stringify(dataTuch));
-  clearInputs();
-  readData();
+  if (price.value.trim() === "") {
+    price.style.borderColor = "#f04";
+    isValid = false;
+  } else {
+    price.style.borderColor = "";
+  }
+
+  if (catagory.value.trim() === "") {
+    catagory.style.borderColor = "#f04";
+    isValid = false;
+  } else {
+    catagory.style.borderColor = "";
+  }
+
+  // 2. التنفيذ فقط إذا كانت البيانات الأساسية مكتملة
+  if (isValid) {
+    if (mood === "create") {
+        dataTuch.push(newTach);
+
+    } else {
+      dataTuch[tmp] = newTach;
+      mood = "create";
+      submit.innerHTML = "create";
+    }
+
+    // حفظ البيانات وتحديث الجدول فقط عند نجاح العملية
+    localStorage.setItem("product", JSON.stringify(dataTuch));
+    clearInputs();
+    readData();
+  }
 };
 
 // clear inputs
@@ -89,10 +113,10 @@ const readData = () => {
                   <td>${i + 1}</td>
                   <td>${dataTuch[i].title}</td>
                   <td>${dataTuch[i].price}</td>
-                  <td>${dataTuch[i].taxes}</td>
-                  <td>${dataTuch[i].ads}</td>
-                  <td>${dataTuch[i].discount}</td>
-                  <td>${dataTuch[i].count}</td>
+                  <td>${dataTuch[i].taxes === "0" ? "-" : dataTuch[i].taxes}</td>
+                  <td>${dataTuch[i].ads === "0" ? "-" : dataTuch[i].ads}</td>
+                  <td>${dataTuch[i].discount === "0" ? "-" : dataTuch[i].discount}</td>
+                  <td>${dataTuch[i].count === "0" ? "-" : dataTuch[i].count}</td>
                   <td>${dataTuch[i].total}</td>
                   <td>${dataTuch[i].catagory}</td>
                   <td><button onclick="updateData(${i})" id="update">update</button></td>
