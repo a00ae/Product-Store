@@ -27,28 +27,32 @@
         <input placeholder="title" type="text" id="title" />
         <div class="price_container">
           <input
+          min="0"
             onkeyup="getTotal()"
             placeholder="price"
             type="number"
             id="price" />
           <input
+          min="0"
             onkeyup="getTotal()"
             placeholder="taxes"
             type="number"
             id="taxes" />
           <input
+          min="0"
             onkeyup="getTotal()"
             placeholder="ads"
             type="number"
             id="ads" />
           <input
+          min="0"
             onkeyup="getTotal()"
             placeholder="discount"
             type="number"
             id="discount" />
           <span id="total"></span>
         </div>
-        <input placeholder="count" type="text" id="count" />
+        <input maxlength="5" placeholder="count" type="text" id="count" />
         <input placeholder="catagory" type="text" id="catagory" />
         <button id="submit">create</button>
         <input placeholder="search" type="text" id="search" />
