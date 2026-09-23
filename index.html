@@ -55,10 +55,10 @@
         <input maxlength="5" placeholder="count" type="text" id="count" />
         <input placeholder="catagory" type="text" id="catagory" />
         <button id="submit">create</button>
-        <input placeholder="search" type="text" id="search" />
+        <input onkeyup="searchData(this.value)" placeholder="search by title" type="text" id="search" />
         <div class="search-btn">
-          <button id="search-by-title">search by title</button>
-          <button id="search-by-catagory">search by catagory</button>
+          <button onclick="getSearchMood(this.id)" id="search-by-title">search by title</button>
+          <button onclick="getSearchMood(this.id)" id="search-by-catagory">search by catagory</button>
         </div>
         <div id="delete-all"></div>
       </section>

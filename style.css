@@ -80,7 +80,6 @@ body {
 h2 {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-sm);
-  
 }
 
 button {
@@ -99,7 +98,7 @@ button {
 
 input {
   outline: none;
-  border: none;
+  border: 1px solid transparent;
   background-color: var(--bg-color-input);
   padding: var(--space-xs) var(--space-xs);
   border-radius: var(--border-radius-xs);
@@ -107,9 +106,9 @@ input {
 
   &:focus {
     background-color: var(--bg-color-fuces);
+    border-color: var(--bg-color-btn);
   }
 }
-
 
 /*header */
 .header {
@@ -166,8 +165,6 @@ input {
   }
 }
 
-
-
 /* outbut table */
 
 .table {
@@ -179,13 +176,12 @@ input {
       text-transform: uppercase;
       margin-bottom: 10px;
       user-select: none;
-     
     }
-    th, td {
+    th,
+    td {
       padding: var(--space-xxs);
     }
   }
-  
 }
 
 @media (max-width: 1400px) {
