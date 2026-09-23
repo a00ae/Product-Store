@@ -35,14 +35,14 @@ if (localStorage.product != null) {
 
 submit.onclick = () => {
   let newTach = {
-    title: title.value.trim(),
-    price: price.value.trim(),
+    title: title.value,
+    price: price.value,
     taxes: taxes.value ? taxes.value : "0",
     ads: ads.value ? ads.value : "0",
     discount: discount.value ? discount.value : "0",
     count: count.value ? count.value : 1,
     total: total.innerHTML,
-    catagory: catagory.value.trim(),
+    catagory: catagory.value,
   };
 
   // 1. فحص كل حقل بشكل منفصل لتلوينه بالأحمر إذا كان فارغاً
